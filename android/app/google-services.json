@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "895715110197",
+    "project_id": "bellatrix-72413",
+    "storage_bucket": "bellatrix-72413.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895715110197:android:259823324343683b02f07c",
+        "android_client_info": {
+          "package_name": "com.plug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895715110197-mt19l2arm7t7gmmj6bjfue95nkmu05ik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIXgk8dfU1_JFc0RN6QoywmUWTayS5r1E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895715110197-mt19l2arm7t7gmmj6bjfue95nkmu05ik.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
