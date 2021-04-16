@@ -10,11 +10,13 @@ import firestore from "@react-native-firebase/firestore";
 import Colors from '../Component/Colors';
 const SplashScreen=(props)=>{
     const _redirect=async()=>{
-        const user = await fetchUser()
+        const user = await fetchUser() 
+      
         if(user&&user!==null)
         {
+            console.log(user)
             await firestore().collection("Users").doc(user).get()
-            .then(r=>{
+            .then(function(r) {
                     if(r.data().Role==="Admin")
                         {
                             ToastAndroid.show("Welcome : "+r.data().Name,3000)

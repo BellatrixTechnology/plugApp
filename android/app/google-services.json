@@ -1,34 +1,49 @@
 {
   "project_info": {
-    "project_number": "895715110197",
-    "project_id": "bellatrix-72413",
-    "storage_bucket": "bellatrix-72413.appspot.com"
+    "project_number": "524884629974",
+    "project_id": "plug-ebaea",
+    "storage_bucket": "plug-ebaea.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:895715110197:android:259823324343683b02f07c",
+        "mobilesdk_app_id": "1:524884629974:android:d8fc3b88d8981a3051ec77",
         "android_client_info": {
           "package_name": "com.plug"
         }
       },
       "oauth_client": [
         {
-          "client_id": "895715110197-mt19l2arm7t7gmmj6bjfue95nkmu05ik.apps.googleusercontent.com",
+          "client_id": "524884629974-4hinr7ukjm5cc7tr4thpvcsjojq9fas4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.plug",
+            "certificate_hash": "3370de54f47a7e0fa8e98c38f7750713f385a097"
+          }
+        },
+        {
+          "client_id": "524884629974-0p6m0ehhgs2ng9kc40eo4mqdmpc5i169.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAIXgk8dfU1_JFc0RN6QoywmUWTayS5r1E"
+          "current_key": "AIzaSyCZ7gtesvWVbM1iTrSyuZTKFWtHi0RzPx8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "895715110197-mt19l2arm7t7gmmj6bjfue95nkmu05ik.apps.googleusercontent.com",
+              "client_id": "524884629974-0p6m0ehhgs2ng9kc40eo4mqdmpc5i169.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "524884629974-rm19fia9g8qr29ng93o98f59bik0g0mk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.plug.app"
+              }
             }
           ]
         }

@@ -19,20 +19,23 @@ import FontSizes from '../Component/FontSizes';
 import { GoogleSignin } from '@react-native-community/google-signin';
 import auth from '@react-native-firebase/auth';
 GoogleSignin.configure({
-    webClientId: '895715110197-mt19l2arm7t7gmmj6bjfue95nkmu05ik.apps.googleusercontent.com',
+    webClientId: '524884629974-0p6m0ehhgs2ng9kc40eo4mqdmpc5i169.apps.googleusercontent.com',
   });
 const Login=(props)=>{
     const checkEmail=async(eml,photoUrl)=>{
+     
         await firestore().collection('Users')
         .where('Email','==', eml.toLowerCase())
         .get()
         .then(function(querySnapshot) {
+           
             if(querySnapshot.empty){ToastAndroid.show("Your are not registered!",3000)
              GoogleSignin.signOut()
             return;}
             querySnapshot.forEach(function(doc) {
                 if(doc.data())
                 {
+                    console.log(photoUrl)
                     // alert(doc.data().id)
                     firestore().collection("Users").doc(doc.data().id).update(
                         {
@@ -73,6 +76,7 @@ const Login=(props)=>{
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
     const OrganizerSignIn=async()=>{
+       
         if(emailValidation(email)===0){ToastAndroid.show("Invalid email format",3000);return;}
         if(password.length<6){ToastAndroid.show("Password Length Invalid",3000);return;}
         await firestore().collection('Users')
