@@ -17,7 +17,7 @@ import { fetchUser,storeUser } from "../Services/CommonService";
 import QRCode from 'react-native-qrcode-svg';
 import auth from '@react-native-firebase/auth';
 import FontSizes from '../Component/FontSizes';
-const Events=(props)=>{
+function Events({navigation}){
     const [event,setEvent] = useState("")
     const [modalVisible, setModalVisible] = useState(false);
     const [val,setVal] = useState("")
@@ -84,7 +84,7 @@ const Events=(props)=>{
         </View>
       </Modal>
         {/* <AntDesign onPress={()=>props.navigation.navigate('Setting')} style={{}} name='logout' size={15} color={Colors.green} /> */}
-        <Feather onPress={()=>props.navigation.navigate('AddEventName')} style={{alignSelf:'center',position:'absolute',zIndex:20,margin:28,right:0}} name='edit' size={20} color={Colors.green} />
+        <Feather onPress={()=>navigation.navigate('AddEventName')} style={{alignSelf:'center',position:'absolute',zIndex:20,margin:28,right:0}} name='edit' size={20} color={Colors.green} />
         <View style={{zIndex:1, height:responsiveHeight(4.6),width:responsiveWidth(22),margin:20,marginLeft:22}}>
             <Text onPress={()=>setModal(true)} style={{color:Colors.black,fontSize:FontSizes.heading+6,fontFamily:Fonts.primaryText}}>Events</Text>
         </View>
@@ -110,7 +110,7 @@ const Events=(props)=>{
                         <Text style={{flex:0.8,margin:10,marginLeft:5,color:Colors.white,fontSize:FontSizes.heading,fontFamily:Fonts.bold}} numberOfLines={1}>{item.name}</Text>
                         {/* <Button style={{flex:0.1,margin:5,marginTop:10,borderRadius:50,opacity:0.6,height:25}}color={Colors.white} mode="contained" onPress={()=>props.navigation.navigate('EditEvent',{ids:item.id})}>Edit</Button> */}
                         {/* <Button style={{flex:0.1,margin:5,borderRadius:50,opacity:0.6,height:responsiveHeight(4)}}  color={Colors.white} mode="contained" >Edit</Button> */}
-                        <Text onPress={()=>props.navigation.navigate('EditEvent',{ids:item.id})} style={{flex:0.2,margin:10,borderRadius:50,opacity:0.5,height:responsiveHeight(3.5),width:10,padding:3,textAlign:'center',backgroundColor:Colors.white,color:Colors.black}} >Edit</Text>
+                        <Text onPress={()=>navigation.navigate('EditEvent',{ids:item.id})} style={{flex:0.2,margin:10,borderRadius:50,opacity:0.5,height:responsiveHeight(3.5),width:10,padding:3,textAlign:'center',backgroundColor:Colors.white,color:Colors.black}} >Edit</Text>
                     </View>
                     <View style={{position:'absolute',bottom:0,width:'100%',height:'100%',borderRadius:10,flexDirection:'row',backgroundColor:'black',zIndex:0,opacity:0.25}}>
                     </View>

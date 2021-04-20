@@ -70,7 +70,7 @@ const Login=(props)=>{
         // Sign-in the user with the credential
         return auth().signInWithCredential(googleCredential);
     } catch (error) {
-            alert("error")
+            alert(error.toString())
     }
       }
     const [email,setEmail] = useState("")

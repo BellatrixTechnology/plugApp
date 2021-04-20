@@ -18,8 +18,9 @@ import { tstamp,fetchUser } from "../Services/CommonService";
 import Fonts from '../Component/FontFamily';
 import FontSizes from '../Component/FontSizes';
 import LocationView from "react-native-location-view";
-const AddEventName=(props)=>{ 
-    const [eventname,setEventName] = useState("")
+const AddEventName=({navigation})=>{ 
+    console.error = () => {}
+    const [eventname,setEventName] = useState('')
     const [img,setImg] = useState([])
     const [imagedata,setImageData] = useState("")
     const [location,setLocation] = useState("")
@@ -30,6 +31,7 @@ const AddEventName=(props)=>{
     const [path,setPath] = useState("")
     const [modal,setModal] = useState(false)
     const tstmp = tstamp()
+    const[count,setcount]=useState(0);
     // const { ids } = props.route.params?props.route.params:""
     // useEffect(()=>{if(ids!==""||ids!==null){alert(ids)}},[])
     const getImage = async(index) => {
@@ -59,6 +61,7 @@ const AddEventName=(props)=>{
 
     const pickDocument = async () => {
         try {
+            
             const res = await DocumentPicker.pick({
                 type: [DocumentPicker.types.images],
             });
@@ -143,30 +146,33 @@ const AddEventName=(props)=>{
             }
         )
         .then(ToastAndroid.show("Event added successfully",3000))
-        .then(props.navigation.navigate("tab"))
+        .then(navigation.navigate("tab"))
 
     }
     return(
         <Swiper style={styles.wrapper} showsPagination={false} loop={false} scrollEnabled={false} ref={(swiper) => {setSw(swiper)}} >
         <View>
             <View style={{width:50}}>
-             <Ionicons name='chevron-back-outline' size={40} style={{margin:10,opacity:0.6}} color={Colors.text} onPress={()=>props.navigation.goBack()}/>
+             <Ionicons name='chevron-back-outline' size={40} style={{margin:10,opacity:0.6}} color={Colors.text} onPress={()=>navigation.goBack()}/>
              </View>
              <View style={{width:responsiveWidth(90),alignSelf:'center'}}>
              <Text style={styles.mainText}>Name of Event</Text>
              <Text style={styles.subText}>Enter the name of the event to continue.</Text>
              <TextInput
                 style={{marginTop:30}}      
-                onChangeText={setEventName}
+                onChangeText={e=>setEventName(e)}
                 underlineColorAndroid={Colors.text}
-                value={eventname}
+                // value={eventname}
                 placeholder="Name"
             />
             <Text style={{fontSize:FontSizes.heading,fontFamily:Fonts.regular,color:Colors.text,marginTop:30}}>Event Photos</Text>
              <Text style={{marginTop:5,fontSize:FontSizes.paragraph,fontFamily:Fonts.regular,color:Colors.text}}>Select Event Photos, you can select upto 4 photos.</Text>
             <View style={{height:responsiveHeight(10),marginTop:15,flexDirection:'row',justifyContent:'space-evenly'}}>
-            {img&&img.map((image,index)=>{ 
-                return <View style={{borderWidth:0.5,borderRadius:10,borderStyle:'dashed',flex:0.20}}><Image style={{alignSelf:'center',marginVertical:'25%',height:'100%',width:'100%',resizeMode:'cover',marginVertical:0,borderWidth:0.5,borderRadius:10}} source={{uri:image}} />
+                
+            {
+            img&&img.map((image,index)=>{ 
+               
+                return <View style={{borderWidth:0.5,borderRadius:10,borderStyle:'dashed',flex:0.20}} key={count}><Image style={{alignSelf:'center',marginVertical:'25%',height:'100%',width:'100%',resizeMode:'cover',marginVertical:0,borderWidth:0.5,borderRadius:10}} source={{uri:image}} />
                 <Button
                 color={Colors.green}
                 style={{top:-10, right: -15,position:'absolute',}}
@@ -217,6 +223,7 @@ const AddEventName=(props)=>{
             animationType="fade"
             transparent={true}
             visible={modal}
+            
             >
             {/* <View style={{position:'absolute',width:responsiveWidth(100),height:responsiveHeight(100),top:0,left:0}}> */}
             <LocationView
@@ -225,6 +232,7 @@ const AddEventName=(props)=>{
                 latitude: 33.5651,
                 longitude: 73.0169,
             }}
+            
             markerColor="#02aab0"
             actionText="Select Location"
             actionButtonStyle={{backgroundColor:"#02aab0"}}
