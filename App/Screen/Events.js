@@ -40,7 +40,7 @@ function Events({navigation}){
         // .orderBy("id", "desc")
         .get()
         setEvent(snapshot.docs.map(doc => doc.data()))
-        // console.log(await fetchUser())
+        // console.log(event)
     }
     useEffect(()=> saveData(),[event])
     const list=[
@@ -104,8 +104,9 @@ function Events({navigation}){
                 //     </View>
                 // </View>
                 <View  style={{borderWidth:0.01,borderColor:Colors.white,borderRadius:10,backgroundColor:Colors.white,width:responsiveWidth(90),height:responsiveHeight(30),alignSelf:'center',margin:10}}>
-                    <Image style={{width:'100%',alignSelf:'center',height:'100%',borderRadius:10}} resizeMode='stretch' source={{uri:item.image}} />
-                    {/* {console.log(item.image.split('Images%2F')[1].split('?')[0])} */}
+                    <Image style={{width:'100%',alignSelf:'center',height:'100%',borderRadius:10}} resizeMode='stretch' source={{uri:item.image.split('`').[0]}} />
+                    {/* { console.log(item.image.split('Images%2F')[1].split('?')[0]) */}
+                    
                     <View style={{position:'absolute',bottom:0,width:'100%',height:responsiveHeight(6.6),flexDirection:'row',zIndex:1}}>
                         <Text style={{flex:0.8,margin:10,marginLeft:5,color:Colors.white,fontSize:FontSizes.heading,fontFamily:Fonts.bold}} numberOfLines={1}>{item.name}</Text>
                         {/* <Button style={{flex:0.1,margin:5,marginTop:10,borderRadius:50,opacity:0.6,height:25}}color={Colors.white} mode="contained" onPress={()=>props.navigation.navigate('EditEvent',{ids:item.id})}>Edit</Button> */}
