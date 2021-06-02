@@ -23,7 +23,7 @@ GoogleSignin.configure({
   });
 const Login=(props)=>{
     const checkEmail=async(eml,photoUrl)=>{
-     
+        
         await firestore().collection('Users')
         .where('Email','==', eml.toLowerCase())
         .get()
@@ -63,6 +63,7 @@ const Login=(props)=>{
     async function onGoogleButtonPress() {
         // Get the users ID token
         try {
+            console.log(2222)
         const { idToken } = await GoogleSignin.signIn();
         // Create a Google credential with the token
         const googleCredential = auth.GoogleAuthProvider.credential(idToken);
@@ -70,13 +71,14 @@ const Login=(props)=>{
         // Sign-in the user with the credential
         return auth().signInWithCredential(googleCredential);
     } catch (error) {
+       
             alert(error.toString())
     }
       }
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
     const OrganizerSignIn=async()=>{
-       
+        console.log(11)
         if(emailValidation(email)===0){ToastAndroid.show("Invalid email format",3000);return;}
         if(password.length<6){ToastAndroid.show("Password Length Invalid",3000);return;}
         await firestore().collection('Users')

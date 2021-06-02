@@ -19,6 +19,7 @@ import EditEvent from "./App/Screen/EditEvent";
 import Scanner from "./App/Screen/Scanner";
 import Login from "./App/Screen/Login";
 import map from "./App/Screen/map";
+import Detail from './App/Screen/Detail';
 
 
 
@@ -54,6 +55,8 @@ export default function App() {
         <Stack.Screen name="Scanner" component={Scanner} options={option,{headerShown:false}}/>
         <Stack.Screen name="Login" component={Login} options={option,{headerShown:false}}/>
         <Stack.Screen name="map" component={map} options={option,{headerShown:false}}/>
+        <Stack.Screen name="Detail" component={Detail} options={option,{headerShown:false}}/>
+        
       </Stack.Navigator>
       </NavigationContainer>
   );

@@ -103,7 +103,9 @@ function Events({navigation}){
                 //     <FontAwesome  name='edit' style={{position:'absolute',top:10,right:10}} size={30} color={Colors.green} onPress={()=>props.navigation.navigate('EditEvent',{ids:item.id})} />
                 //     </View>
                 // </View>
+              
                 <View  style={{borderWidth:0.01,borderColor:Colors.white,borderRadius:10,backgroundColor:Colors.white,width:responsiveWidth(90),height:responsiveHeight(30),alignSelf:'center',margin:10}}>
+                    <TouchableOpacity onPress={()=>navigation.navigate('Detail',item)}>
                     <Image style={{width:'100%',alignSelf:'center',height:'100%',borderRadius:10}} resizeMode='stretch' source={{uri:item.image.split('`').[0]}} />
                     {/* { console.log(item.image.split('Images%2F')[1].split('?')[0]) */}
                     
@@ -114,7 +116,8 @@ function Events({navigation}){
                         <Text onPress={()=>navigation.navigate('EditEvent',{ids:item.id})} style={{flex:0.2,margin:10,borderRadius:50,opacity:0.5,height:responsiveHeight(3.5),width:10,padding:3,textAlign:'center',backgroundColor:Colors.white,color:Colors.black}} >Edit</Text>
                     </View>
                     <View style={{position:'absolute',bottom:0,width:'100%',height:'100%',borderRadius:10,flexDirection:'row',backgroundColor:'black',zIndex:0,opacity:0.25}}>
-                    </View>
+                    </View> 
+                    </TouchableOpacity>
                 </View>
            }
            />
